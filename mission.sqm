@@ -8,7 +8,7 @@ class EditorData
 	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=4803;
+		nextID=4805;
 	};
 	class MarkerIDProvider
 	{
@@ -119,13 +119,14 @@ addons[]=
 	"A3_Drones_F_Air_F_Gamma_UAV_02",
 	"A3_Air_F_Exp_UAV_03",
 	"CFP_C_ASIA",
-	"CUP_WaterVehicles_Fishing_Boat"
+	"CUP_WaterVehicles_Fishing_Boat",
+	"A3_Modules_F_Curator_Multiplayer"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=61;
+		items=62;
 		class Item0
 		{
 			className="CUP_Misc_e_Config";
@@ -501,6 +502,13 @@ class AddonsMetaData
 			className="CUP_WaterVehicles_Fishing_Boat";
 			name="CUP_WaterVehicles_Fishing_Boat";
 		};
+		class Item61
+		{
+			className="A3_Modules_F_Curator";
+			name="Arma 3 Zeus Update - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=10448789;
@@ -670,7 +678,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=590;
+		items=591;
 		class Item0
 		{
 			dataType="Layer";
@@ -28133,6 +28141,7 @@ class Mission
 			position[]={14213.866,-90.989021,509.689};
 			class Attributes
 			{
+				condition="call{{ " \n "   if ( [_x] call bis_fnc_taskExists ) then { " \n "       [_x] call bis_fnc_taskState == ""SUCCEEDED"" " \n "   }else{ " \n "       false " \n "   }; " \n "} count [""task1"",""task2"",""task3"",""task4""] == 4}";
 				sizeA=250;
 				sizeB=250;
 				activationBy="WEST";
@@ -28148,7 +28157,7 @@ class Mission
 			position[]={4401.479,-18.611494,1336.45};
 			class Attributes
 			{
-				condition="call{{ " \n "   if ( [_x] call bis_fnc_taskExists ) then { " \n "       [_x] call bis_fnc_taskState == ""SUCCEEDED"" " \n "   }else{ " \n "       false " \n "   }; " \n "} count [""task1"",""task2"",""task3""] == 3}";
+				condition="call{{ " \n "   if ( [_x] call bis_fnc_taskExists ) then { " \n "       [_x] call bis_fnc_taskState == ""SUCCEEDED"" " \n "   }else{ " \n "       false " \n "   }; " \n "} count [""task1"",""task2"",""task3"",""task4""] == 4}";
 				sizeA=3250;
 				sizeB=150;
 				sizeC=15;
@@ -28158,6 +28167,97 @@ class Mission
 			};
 			id=4802;
 			type="EmptyDetector";
+		};
+		class Item590
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8325.6631,-0.89087391,1173.4561};
+			};
+			id=4803;
+			type="ModuleRespawnTickets_F";
+			atlOffset=84.494675;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleRespawnTickets_F_CIV";
+					expression="_this setVariable ['CIV',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleRespawnTickets_F_GUER";
+					expression="_this setVariable ['GUER',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleRespawnTickets_F_EAST";
+					expression="_this setVariable ['EAST',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="10";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleRespawnTickets_F_WEST";
+					expression="_this setVariable ['WEST',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="4";
+						};
+					};
+				};
+				nAttributes=4;
+			};
 		};
 	};
 	class Connections
