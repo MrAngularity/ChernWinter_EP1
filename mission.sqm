@@ -8,7 +8,7 @@ class EditorData
 	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=4805;
+		nextID=4806;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1373;
+		nextID=1481;
 	};
 	class Camera
 	{
 		pos[]={3757.7917,93.73436,2734.9514};
-		dir[]={-0.35567454,-0.41269913,0.83858794};
-		up[]={-0.16115563,0.91085315,0.37996528};
-		aside[]={0.92064083,8.5259671e-008,0.39047399};
+		dir[]={-0.64129722,-0.50693852,0.57602656};
+		up[]={-0.37715536,0.86196619,0.33877015};
+		aside[]={0.66825116,3.3853576e-007,0.7439692};
 	};
 };
 binarizationWanted=0;
@@ -532,8 +532,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -545,7 +545,7 @@ class CustomAttributes
 							"SCALAR"
 						};
 					};
-					value=2;
+					value=1;
 				};
 			};
 		};
@@ -585,7 +585,7 @@ class CustomAttributes
 					};
 					class value
 					{
-						items=1;
+						items=3;
 						class Item0
 						{
 							class data
@@ -598,6 +598,34 @@ class CustomAttributes
 									};
 								};
 								value="Counter";
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="Spectator";
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="Tickets";
 							};
 						};
 					};
@@ -625,8 +653,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -638,7 +666,7 @@ class CustomAttributes
 							"SCALAR"
 						};
 					};
-					value=1;
+					value=2;
 				};
 			};
 		};
@@ -678,7 +706,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=591;
+		items=592;
 		class Item0
 		{
 			dataType="Layer";
@@ -16910,6 +16938,7 @@ class Mission
 						skill=1;
 						rank="MAJOR";
 						init="call{this addEventHandler [""Respawn"", {_new_unit = _this select 0;waitUntil{_new_unit == player};removeAllWeapons _new_unit; removeBackpack _new_unit;removeAllItems _new_unit; removeHeadgear _new_unit;removeVest _new_unit;_new_unit unlinkItem ""NVGoggles"";{_new_unit removeMagazine _x} forEach magazines _new_unit; if (side _new_unit == west) then {_new_unit addUniform ""CFP_U_FieldUniform_multicam_snow"" " \n "} else {_new_unit addUniform ""CFP_CHZ_Berezka3""; }; }];}";
+						name="blu1";
 						isPlayable=1;
 						class Inventory
 						{
@@ -17089,6 +17118,7 @@ class Mission
 						skill=1;
 						rank="CAPTAIN";
 						init="call{this addEventHandler [""Respawn"", {_new_unit = _this select 0;waitUntil{_new_unit == player};removeAllWeapons _new_unit; removeBackpack _new_unit;removeAllItems _new_unit; removeHeadgear _new_unit;removeVest _new_unit;_new_unit unlinkItem ""NVGoggles"";{_new_unit removeMagazine _x} forEach magazines _new_unit; if (side _new_unit == west) then {_new_unit addUniform ""CFP_U_FieldUniform_multicam_snow"" " \n "} else {_new_unit addUniform ""CFP_CHZ_Berezka3""; }; }];{this  connectTerminalToUAV _x} forEach allUnitsUAV;}";
+						name="blu2";
 						isPlayable=1;
 						class Inventory
 						{
@@ -17242,6 +17272,7 @@ class Mission
 						skill=0.35063201;
 						rank="LIEUTENANT";
 						init="call{this addEventHandler [""Respawn"", {_new_unit = _this select 0;waitUntil{_new_unit == player};removeAllWeapons _new_unit; removeBackpack _new_unit;removeAllItems _new_unit; removeHeadgear _new_unit;removeVest _new_unit;_new_unit unlinkItem ""NVGoggles"";{_new_unit removeMagazine _x} forEach magazines _new_unit; if (side _new_unit == west) then {_new_unit addUniform ""CFP_U_FieldUniform_multicam_snow"" " \n "} else {_new_unit addUniform ""CFP_CHZ_Berezka3""; }; }];}";
+						name="blu3";
 						isPlayable=1;
 						class Inventory
 						{
@@ -17438,6 +17469,7 @@ class Mission
 						skill=1;
 						rank="SERGEANT";
 						init="call{this addEventHandler [""Respawn"", {_new_unit = _this select 0;waitUntil{_new_unit == player};removeAllWeapons _new_unit; removeBackpack _new_unit;removeAllItems _new_unit; removeHeadgear _new_unit;removeVest _new_unit;_new_unit unlinkItem ""NVGoggles"";{_new_unit removeMagazine _x} forEach magazines _new_unit; if (side _new_unit == west) then {_new_unit addUniform ""CFP_U_FieldUniform_multicam_snow"" " \n "} else {_new_unit addUniform ""CFP_CHZ_Berezka3""; }; }];}";
+						name="blu4";
 						isPlayable=1;
 						class Inventory
 						{
@@ -20263,7 +20295,7 @@ class Mission
 			position[]={2719.79,125.96605,2992.7319};
 			class Attributes
 			{
-				condition="call{!alive sam_1_1 and !alive sam_1_2}";
+				condition="call{!alive sam_1_1}";
 				sizeA=0;
 				sizeB=0;
 			};
@@ -28142,10 +28174,12 @@ class Mission
 			class Attributes
 			{
 				condition="call{{ " \n "   if ( [_x] call bis_fnc_taskExists ) then { " \n "       [_x] call bis_fnc_taskState == ""SUCCEEDED"" " \n "   }else{ " \n "       false " \n "   }; " \n "} count [""task1"",""task2"",""task3"",""task4""] == 4}";
+				onActivation="call{""SideScore"" call BIS_fnc_endMissionServer;}";
 				sizeA=250;
 				sizeB=250;
 				activationBy="WEST";
 				type="END1";
+				isServerOnly=1;
 			};
 			id=4801;
 			type="EmptyDetector";
@@ -28158,12 +28192,14 @@ class Mission
 			class Attributes
 			{
 				condition="call{{ " \n "   if ( [_x] call bis_fnc_taskExists ) then { " \n "       [_x] call bis_fnc_taskState == ""SUCCEEDED"" " \n "   }else{ " \n "       false " \n "   }; " \n "} count [""task1"",""task2"",""task3"",""task4""] == 4}";
+				onActivation="call{""SideScore"" call BIS_fnc_endMissionServer;}";
 				sizeA=3250;
 				sizeB=150;
 				sizeC=15;
 				activationBy="WEST";
 				type="END1";
 				isRectangle=1;
+				isServerOnly=1;
 			};
 			id=4802;
 			type="EmptyDetector";
@@ -28173,11 +28209,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8325.6631,-0.89087391,1173.4561};
+				position[]={8325.6631,-0.89054871,1173.4561};
 			};
 			id=4803;
 			type="ModuleRespawnTickets_F";
-			atlOffset=84.494675;
+			atlOffset=84.495003;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -28258,6 +28294,24 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item591
+		{
+			dataType="Trigger";
+			position[]={6339.1152,-128.38843,252.35201};
+			class Attributes
+			{
+				condition="call{([west] call BIS_fnc_respawnTickets == 0) and !alive blu1 and !alive blu2 and !alive blu3 and !alive blu4}";
+				onActivation="call{""SideScore"" call BIS_fnc_endMissionServer;}";
+				sizeA=0;
+				sizeB=0;
+				sizeC=15;
+				type="END2";
+				isRectangle=1;
+				isServerOnly=1;
+			};
+			id=4805;
+			type="EmptyDetector";
 		};
 	};
 	class Connections
